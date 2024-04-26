@@ -34,7 +34,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {" "}
     <CartProvider>
       {" "}
-      {/* Wrap the entire application with CartProvider */}
       <RouterProvider router={router} />
     </CartProvider>
   </React.StrictMode>
