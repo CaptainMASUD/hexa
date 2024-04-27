@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useCart } from "../../Context/CartContext/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -11,7 +11,7 @@ function Checkout() {
   const [showModal, setShowModal] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState("");
-
+  const navigte = useNavigate()
   useEffect(() => {
     // Calculate total price in BDT
     let total = 0;
@@ -42,6 +42,7 @@ function Checkout() {
   const handleOkButtonClick = () => {
     setShowModal(false);
     clearCart();
+    navigte("/")
   };
 
   const handleCopyNumber = () => {
