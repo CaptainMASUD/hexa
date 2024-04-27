@@ -31,7 +31,7 @@ function SubscriptionCard({ name, price, features }) {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 h-80 mx-4 relative">
+    <div className="bg-white shadow-md rounded-lg p-6 h-80 mx-4 relative mb-10">
       <h2 className="text-xl font-bold mb-4">{name}</h2>
       <p className="text-2xl font-bold mb-4">{price} <span className='text-sm font-semibold'>/month</span></p>
       <ul className="mb-4">

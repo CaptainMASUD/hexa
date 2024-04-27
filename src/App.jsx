@@ -127,7 +127,7 @@ function App() {
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
           >
-            <NetflixSubscription />
+            <NetflixSubscription/>
           </motion.div>
         </AnimatePresence>
       </main>

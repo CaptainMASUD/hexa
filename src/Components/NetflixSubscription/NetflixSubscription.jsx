@@ -23,7 +23,7 @@ function NetflixSubscription() {
             transition={{ duration: 1, delay: 0.5 }}
             className="text-2xl font-semibold text-red-400 mb-8 underline flex justify-center items-center"
           >
-            <span>More details about Plan </span>
+            <span >More details about Plan </span>
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -55,7 +55,7 @@ function NetflixSubscription() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10 gap-8"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
