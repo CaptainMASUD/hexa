@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaRegPlayCircle, FaRegStar, FaRegGem } from "react-icons/fa"; // Import icons from React Icons
+import { FiVideo, FiSun, FiTv, FiSmartphone } from "react-icons/fi"; // Import more icons
+import { IoMdLock } from "react-icons/io"; // Import lock icon from Io icons
 
 function NetflixSubscription() {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,16 +17,16 @@ function NetflixSubscription() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-       <AnimatePresence>
+      <AnimatePresence>
         {!isLoading && (
           <motion.h1
             initial={{ opacity: 0, y: -50, scale: 0.5 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -50, scale: 0.5 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="text-2xl font-semibold text-red-400 mb-8 underline flex justify-center items-center"
+            className="text-2xl font-semibold text-red-400 mb-8 flex justify-center items-center"
           >
-            <span >More details about Plan </span>
+            <span>More details about Plan </span>
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -61,34 +64,69 @@ function NetflixSubscription() {
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-lg p-6 shadow-md"
+              className="bg-white rounded-lg p-6 shadow-md flex flex-col items-center justify-center "
             >
-              <h2 className="text-xl font-bold mb-4">Basic Plan</h2>
-              <p className="text-gray-600 mb-4">Watch on 1 screen at a time in Standard Definition. Download videos on 1 phone or tablet.</p>
-              <p className="text-gray-600">Quality: Standard Definition (SD)</p>
-              <p className="text-gray-600">Optimizations: Minimal data usage, suitable for slower internet connections.</p>
+              <FaRegPlayCircle className="text-5xl mb-4 text-gray-600" />
+              <p className="text-gray-600 mb-2">Basic Plan</p>
+              <div className="flex space-x-2 text-gray-600 mb-2">
+                <FiVideo className="text-xl text-red-400" />
+                <span>SD</span>
+              </div>
+              <div className="flex space-x-2 text-gray-600 mb-2">
+                <IoMdLock className="text-xl text-red-400" />
+                <span>Locked</span>
+              </div>
+              <div className="flex space-x-2 text-gray-600">
+                <FiSmartphone className="text-xl text-red-400" />
+                <span>1 Screen</span>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white rounded-lg p-6 shadow-md"
+              className="bg-white rounded-lg p-6 shadow-md flex flex-col items-center justify-center"
             >
-              <h2 className="text-xl font-bold mb-4">Standard Plan</h2>
-              <p className="text-gray-600 mb-4">Watch on 2 screens at a time in High Definition. Download videos on 2 phones or tablets or TV.</p>
-              <p className="text-gray-600">Quality: High Definition (HD)</p>
-              <p className="text-gray-600">Optimizations: Balanced data usage, suitable for most internet connections.</p>
+              <FaRegStar className="text-5xl mb-4 text-gray-600" />
+              <p className="text-gray-600 mb-2">Standard Plan</p>
+              <div className="flex space-x-2 text-gray-600 mb-2">
+                <FiSun className="text-xl text-red-400" />
+                <span>HD</span>
+              </div>
+              <div className="flex space-x-2 text-gray-600 mb-2">
+                <IoMdLock className="text-xl text-red-400" />
+                <span>Locked</span>
+              </div>
+              <div className="flex space-x-2 text-gray-600">
+                <FiTv className="text-xl text-red-400" />
+                <span>2 Screens</span>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-white rounded-lg p-6 shadow-md"
+              className="bg-white rounded-lg p-6 shadow-md flex flex-col items-center justify-center"
             >
-              <h2 className="text-xl font-bold mb-4">Premium Plan</h2>
-              <p className="text-gray-600 mb-4">Watch on 4 screens at a time in Ultra High Definition. Download videos on 4 phones or tablets or TV.</p>
-              <p className="text-gray-600">Quality: Ultra High Definition (UHD)</p>
-              <p className="text-gray-600">Optimizations: Maximum quality and data usage, requires fast and stable internet connection.</p>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaRegGem className="text-5xl mb-4 text-gray-600" />
+              </motion.div>
+              <p className="text-gray-600 mb-2">Premium Plan</p>
+              <div className="flex space-x-2 text-gray-600 mb-2">
+                <FiTv className="text-xl text-red-400" />
+                <span>UHD</span>
+              </div>
+              <div className="flex space-x-2 text-gray-600 mb-2">
+                <IoMdLock className="text-xl text-red-400" />
+                <span>Locked</span>
+              </div>
+              <div className="flex space-x-2 text-gray-600">
+                <FiTv className="text-xl text-red-400" />
+                <span>4 Screens</span>
+              </div>
             </motion.div>
           </motion.div>
         )}

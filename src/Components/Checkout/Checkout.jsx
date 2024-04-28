@@ -149,7 +149,7 @@ function Checkout() {
       <p className="text-lg font-semibold mb-2">Enter Transaction ID</p>
       <input
         type="text"
-        placeholder="Transaction ID"
+        placeholder="xxxxxxxxxx"
         value={transactionId}
         onChange={(e) => setTransactionId(e.target.value)}
         className="border border-gray-300 rounded-md px-3 py-2 mb-4 w-full"
