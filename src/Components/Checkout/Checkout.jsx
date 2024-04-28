@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useCart } from "../../Context/CartContext/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaWhatsapp } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+
 
 function Checkout() {
   const { cartItems, clearCart } = useCart();
@@ -116,18 +119,18 @@ function Checkout() {
           </li>
           <li className="mb-2">
             3. After Payment give your{" "}
-            <span className="text-yellow-200 bg-black p-[1px] rounded-md">
+            <span className="text-yellow-200 bg-slate-600 p-[1px] rounded-md">
               'Transaction ID'
             </span>{" "}
           </li>
-          <li>
+          <li className="flex">
             4. Then enter your{" "}
-            <span className="text-green-400 bg-black p-[1px] rounded-md">
-              'WhatsApp'
+            <span className="text-green-400 flex bg-slate-600 p-[1px] rounded-md">
+            &nbsp;<FaWhatsapp className="w-5 h-5 mt-[1px] mr-1"/> WhatsApp &nbsp;
             </span>{" "}
-            or{" "}
-            <span className="text-red-400 bg-black p-[1px] rounded-md">
-              'email'
+            &nbsp; or&nbsp;{" "}
+            <span className="text-white bg-slate-600 flex  p-[1px] rounded-md">
+            &nbsp;<MdEmail className="text-red-400 h-5 w-5 mt-[1px] "/> &nbsp;Email &nbsp;
             </span>{" "}
           </li>
         </ul>

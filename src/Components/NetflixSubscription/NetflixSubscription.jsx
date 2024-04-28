@@ -24,7 +24,7 @@ function NetflixSubscription() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -50, scale: 0.5 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="text-2xl font-semibold text-red-400 mb-8 flex justify-center items-center"
+            className="text-[1.6rem] font-semibold text-red-400 mb-8 flex justify-center items-center"
           >
             <span>More details about Plan </span>
             <motion.svg
