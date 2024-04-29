@@ -55,7 +55,7 @@ function WhyChooseUs() {
           transition={{ duration: 2, loop: Infinity, ease: "linear" }}
         >
         </motion.span>
-       <span className="text-[1.6rem] text-red-400 flex"> Why Choose Our Netflix Plans &nbsp; <FaCrown className="w-8 h-8"/></span>
+       <span className="text-[1.6rem] text-red-400 flex"> Why Choose Our Plans &nbsp; <FaCrown className="w-8 h-8"/></span>
       </motion.h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
         {reasons.map((reason, index) => (
