@@ -25,14 +25,14 @@ const ImageCarousel = () => {
   const images = [s, a, d, f, g, j]; // Array containing all image paths
 
   const imageStyle = {
-    width: '220px',
-    height: '300px', // Set height to 200px
+    width: '200px',
+    height: '280px',
     margin: '0 auto',
     borderRadius: '5px',
   };
 
   const containerStyle = {
-    maxWidth: '1460px',
+    maxWidth: '88%', // Set maximum width for large devices
     margin: '0 auto',
   };
 
