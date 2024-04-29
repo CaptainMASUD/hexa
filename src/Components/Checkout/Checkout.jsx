@@ -223,7 +223,7 @@ function Checkout() {
             <p>Your will get the account as soon as possible.</p>
             <button
               onClick={() => {
-                setShowModal(false);
+                
                 clearCart();
               }}
               className="bg-red-700 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-300 ease-in-out mt-4"
