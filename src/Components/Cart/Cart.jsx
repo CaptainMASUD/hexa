@@ -165,7 +165,7 @@ function CartPage() {
                   <div className="flex items-center">
                     <button
                       onClick={() => handleDecrementQuantity(item.name)}
-                      className="text-red-700 hover:text-white font-bold py-1 px-3 rounded-full border border-red-700 hover:bg-red-600 transition duration-300 ease-in-out flex items-center mr-2"
+                      className="text-red-700 hover:text-white font-bold py-1 px-3 rounded-full  hover:bg-red-600 transition duration-300 ease-in-out flex items-center mr-2"
                     >
                       -
                     </button>
@@ -174,7 +174,7 @@ function CartPage() {
                     </span>
                     <button
                       onClick={() => handleIncrementQuantity(item.name)}
-                      className="text-green-700 hover:text-white font-bold py-1 px-3 rounded-full border border-green-700 hover:bg-green-600 transition duration-300 ease-in-out flex items-center"
+                      className="text-green-700 hover:text-white font-bold py-1 px-3 rounded-full  hover:bg-green-600 transition duration-300 ease-in-out flex items-center"
                     >
                       +
                     </button>

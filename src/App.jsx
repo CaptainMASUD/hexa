@@ -95,6 +95,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               style={{fontFamily:"Plus Jakarta Sans"}}
+              className='text-[1.6rem] md:text-md'
             >
               Choose
             </motion.span>{" "}
@@ -103,6 +104,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               style={{fontFamily:"Plus Jakarta Sans"}}
+              className='text-[1.6rem] md:text-md'
             >
               Your
             </motion.span>{" "}
@@ -111,6 +113,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               style={{fontFamily:"Plus Jakarta Sans"}}
+              className='text-[1.6rem] md:text-md'
             >
               Netflix
             </motion.span>{" "}
@@ -119,6 +122,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
               style={{fontFamily:"Plus Jakarta Sans"}}
+              className='text-[1.6rem] md:text-md'
             >
               Plan
             </motion.span>
