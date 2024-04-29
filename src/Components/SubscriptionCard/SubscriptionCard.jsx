@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { useCart } from '../../Context/CartContext/CartContext';
+import { motion, AnimatePresence } from 'framer-motion';
+import { BsBookmarkCheckFill } from 'react-icons/bs';
+import { FaCartPlus } from "react-icons/fa6";
 
 function SubscriptionCard({ name, price, features }) {
   const [showAddedNotification, setShowAddedNotification] = useState(false);
   const [showAlreadyInCartNotification, setShowAlreadyInCartNotification] = useState(false);
+  const [showSuggestion, setShowSuggestion] = useState(false); // State for suggestion message
   const { cartItems, addToCart } = useCart(); // Access cartItems and addToCart function from context
 
   const handleAddToCart = () => {
@@ -32,6 +36,22 @@ function SubscriptionCard({ name, price, features }) {
 
   return (
     <div className="bg-white shadow-md rounded-lg p-6 h-80 mx-4 relative mb-10">
+      <div className="absolute top-2 right-2 text-red-500">
+        <BsBookmarkCheckFill className="text-3xl cursor-pointer" onMouseEnter={() => setShowSuggestion(true)} onMouseLeave={() => setShowSuggestion(false)} />
+        <AnimatePresence>
+          {showSuggestion && ( // Show suggestion message when hovering over the icon
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="absolute top-0 right-full transform translate-x-2 -translate-y-1/2 bg-white text-gray-600 px-2 py-1 rounded-md shadow text-xs"
+            >
+              Plan Available
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
       <h2 className="text-xl font-bold mb-4">{name}</h2>
       <p className="text-2xl font-bold mb-4">{price} <span className='text-sm font-semibold'>/month</span></p>
       <ul className="mb-4">
@@ -45,20 +65,36 @@ function SubscriptionCard({ name, price, features }) {
         ))}
       </ul>
       <div className='grid place-content-center'>
-        <button onClick={handleAddToCart} className="hover:bg-red-600 hover:text-white text-red-700 py-1 px-3 rounded-full border border-red-700 transition duration-300 ease-in-out">
-          Add to Cart
+        <button onClick={handleAddToCart} className="hover:bg-red-600 flex text-md hover:text-white text-red-700 py-1 px-3 rounded-full border border-red-700 transition duration-300 ease-in-out">
+        <FaCartPlus className='mt-1' /> &nbsp;Add to Cart
         </button>
       </div>
-      {showAddedNotification && (
-        <div className="absolute top-4 left-4 bg-green-500 text-white py-2 px-4 rounded-md">
-          Item added to cart!
-        </div>
-      )}
-      {showAlreadyInCartNotification && (
-        <div className="absolute top-4 left-4 bg-red-500 text-white py-2 px-4 rounded-md">
-          Item already in cart!
-        </div>
-      )}
+      <AnimatePresence>
+        {showAddedNotification && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="absolute top-4 left-4 bg-green-500 text-white py-2 px-4 rounded-md"
+          >
+            Item added to cart!
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showAlreadyInCartNotification && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="absolute top-4 left-4 bg-red-500 text-white py-2 px-4 rounded-md"
+          >
+            Item already in cart!
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
