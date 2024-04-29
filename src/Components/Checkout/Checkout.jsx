@@ -124,13 +124,13 @@ function Checkout() {
             </span>{" "}
           </li>
           <li className="flex">
-            4. Then enter your{" "}
+            4. Then enter your&nbsp;{" "}
             <span className="text-green-400 flex bg-slate-600 p-[1px] rounded-md">
-            &nbsp;<FaWhatsapp className="w-5 h-5 mt-[1px] mr-1"/> WhatsApp &nbsp;
+            &nbsp;WhatsApp&nbsp;
             </span>{" "}
-            &nbsp; or&nbsp;{" "}
-            <span className="text-white bg-slate-600 flex  p-[1px] rounded-md">
-            &nbsp;<MdEmail className="text-red-400 h-5 w-5 mt-[1px] "/> &nbsp;Email &nbsp;
+            &nbsp;or&nbsp; {" "}
+            <span className="text-red-300 bg-slate-600 flex  p-[1px] rounded-md">
+            &nbsp;Email&nbsp;
             </span>{" "}
           </li>
         </ul>
