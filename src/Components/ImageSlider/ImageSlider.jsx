@@ -25,7 +25,7 @@ const ImageCarousel = () => {
   const images = [s, a, d, f, g, j]; // Array containing all image paths
 
   const imageStyle = {
-    width: '200px',
+    width: '180px',
     height: '280px',
     margin: '0 auto',
     borderRadius: '5px',
