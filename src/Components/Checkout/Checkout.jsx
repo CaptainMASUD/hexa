@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../../Context/CartContext/CartContext";
-import { FaWhatsapp } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+
 
 function Checkout() {
   const { cartItems, clearCart } = useCart();
@@ -14,6 +14,7 @@ function Checkout() {
   const [showModal, setShowModal] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState("");
+  const navigate = useNavigate()
 
   useEffect(() => {
     // Calculate total price in BDT
@@ -33,6 +34,11 @@ function Checkout() {
       setShowModal(true);
       setShowNotification(true);
       setNotificationMessage(`${paymentMethod} number copied!`);
+
+      // Hide notification after 2 seconds
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 2000);
     }
   };
 
@@ -40,16 +46,21 @@ function Checkout() {
     navigator.clipboard.writeText(getPaymentNumber(paymentMethod));
     setShowNotification(true);
     setNotificationMessage(`${paymentMethod} number copied!`);
+
+    // Hide notification after 2 seconds
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 2000);
   };
 
   const getPaymentNumber = (method) => {
     switch (method) {
       case "Bkash":
-        return "0187603941";
+        return "017xxxxxx";
       case "Nagad":
-        return "017xxxxxxxx";
+        return "017xxxxxx";
       case "Rocket":
-        return "019xxxxxxxx";
+        return "019xxxxxx";
       default:
         return "";
     }
@@ -166,9 +177,11 @@ function Checkout() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white py-2 px-4 rounded-md z-50"
+                  className="absolute inset-0 flex justify-center items-center z-50"
                 >
-                  {notificationMessage}
+                  <div className="bg-green-500 text-white py-2 px-4 rounded-md">
+                    {notificationMessage}
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -223,8 +236,9 @@ function Checkout() {
             <p>Your will get the account as soon as possible.</p>
             <button
               onClick={() => {
-                
+                setShowModal(false);
                 clearCart();
+                navigate("/")
               }}
               className="bg-red-700 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-300 ease-in-out mt-4"
             >
@@ -238,3 +252,4 @@ function Checkout() {
 }
 
 export default Checkout;
+
