@@ -101,7 +101,7 @@ function Checkout() {
           }`}
           onClick={() => setPaymentMethod("Bkash")}
         >
-        <img src={bk} className="w-6 h-6" alt="" />&nbsp;  Bkash
+        <img src={bk} className="w-5 h-5" alt="" />&nbsp;Bkash
         </button>
         <button
           className={`border flex border-orange-400 hover:bg-orange-600 focus:text-white text-orange-400 hover:text-white font-bold py-2 px-4 rounded-full mr-2 ${
@@ -109,7 +109,7 @@ function Checkout() {
           }`}
           onClick={() => setPaymentMethod("Nagad")}
         >
-         <img src={ng} alt=""  className="w-5 h-5" />&nbsp; Nagad
+         <img src={ng} alt=""  className="w-4 h-4 mt-1" />&nbsp;Nagad
         </button>
         <button
           className={`border flex border-purple-400 hover:bg-purple-600 text-purple-500 focus:text-white hover:text-white font-bold py-2 px-4 rounded-full ${
@@ -117,7 +117,7 @@ function Checkout() {
           }`}
           onClick={() => setPaymentMethod("Rocket")}
         >
-        <GrSend className="w-6 h-6"/> &nbsp; Rocket
+        <GrSend className="w-5 h-5"/> &nbsp;Rocket
         </button>
       </div>
       <AnimatePresence>
