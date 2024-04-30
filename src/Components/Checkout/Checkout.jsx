@@ -3,10 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../../Context/CartContext/CartContext";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import ng from '../../images/ng.png'
-import bk from '../../images/bk.png'
+import ng from '../../images/ng.png';
+import bk from '../../images/bk.png';
 import { GrSend } from "react-icons/gr";
-
 
 function Checkout() {
   const { cartItems, clearCart } = useCart();
@@ -17,7 +16,7 @@ function Checkout() {
   const [showModal, setShowModal] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Calculate total price in BDT
@@ -91,7 +90,7 @@ function Checkout() {
       <p className="text-lg font-semibold mb-2 flex justify-end">
         Subtotal: ৳{totalPrice.toFixed(2)}
       </p>
-      <h1 className="text-center mb-5 flex justify-center text-lg font-semibold">
+      <h1 className="text-center mb-5 flex justify-center text-lg font-semibold mt-10">
         Choose your payment method{" "}
         <IoMdArrowDropdown className=" text-red-400 w-8 h-8" />
       </h1>
@@ -121,74 +120,86 @@ function Checkout() {
         <GrSend className="w-6 h-6"/> &nbsp; Rocket
         </button>
       </div>
+      <AnimatePresence>
+        {paymentMethod && (
+          <motion.div
+            key="payment-details"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="bg-slate-200 text-black p-4 rounded-md mb-4 drop-shadow-md">
+              <p className="text-xl font-semibold">
+                {paymentMethod} Number:{" "}
+                <span
+                  onClick={handleCopyNumber}
+                  className="cursor-pointer flex flex-row w-28 text-white p-[3px] rounded-md bg-slate-500 text-[1rem]"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875h.375a3.75 3.75 0 0 1 3.75 3.75v1.875C13.5 8.161 14.34 9 15.375 9h1.875A3.75 3.75 0 0 1 21 12.75v3.375C21 17.16 20.16 18 19.125 18h-9.75A1.875 1.875 0 0 1 7.5 16.125V3.375Z" />
+                    <path d="M15 5.25a5.23 5.23 0 0 0-1.279-3.434 9.768 9.768 0 0 1 6.963 6.963A5.23 5.23 0 0 0 17.25 7.5h-1.875A.375.375 0 0 1 15 7.125V5.25ZM4.875 6H6v10.125A3.375 3.375 0 0 0 9.375 19.5H16.5v1.125c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 0 1 3 20.625V7.875C3 6.839 3.84 6 4.875 6Z" />
+                  </svg>
+                  {getPaymentNumber(paymentMethod)}
+                </span>
+              </p>
+              <ul>
+                <li className="mt-2 mb-1">
+                  1. Please use the{" "}
+                  <span className="font-bold">"Send Money"</span> from{" "}
+                  {paymentMethod} App.
+                </li>
+                <li className="mb-2">
+                  2. Sent this amount{" "}
+                  <span className="text-red-700 font-bold">
+                    {totalPrice.toFixed(2)}
+                  </span>{" "}
+                  tk
+                </li>
+                <li className="mb-2">
+                  3. After Payment give your{" "}
+                  <span className="text-yellow-200 bg-slate-600 p-[1px] rounded-md">
+                    'Transaction ID'
+                  </span>{" "}
+                </li>
+                <li className="flex">
+                  4. Then enter your&nbsp;{" "}
+                  <span className="text-green-400 flex bg-slate-600 p-[1px] rounded-md">
+                    &nbsp;WhatsApp&nbsp;
+                  </span>{" "}
+                  &nbsp;or&nbsp;{" "}
+                  <span className="text-red-300 bg-slate-600 flex  p-[1px] rounded-md">
+                    &nbsp;Email&nbsp;
+                  </span>{" "}
+                </li>
+              </ul>
+              {/* Notification message */}
+              <AnimatePresence>
+                {showNotification && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0 flex justify-center items-center z-50"
+                  >
+                    <div className="bg-green-500 text-white py-2 px-4 rounded-md">
+                      {notificationMessage}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {paymentMethod && (
         <>
-          <div className="bg-slate-200 text-black p-4 rounded-md mb-4 drop-shadow-md">
-            <p className="text-xl font-semibold">
-              {paymentMethod} Number:{" "}
-              <span
-                onClick={handleCopyNumber}
-                className="cursor-pointer flex flex-row w-28 text-white p-[3px] rounded-md bg-slate-500 text-[1rem]"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path d="M7.5 3.375c0-1.036.84-1.875 1.875-1.875h.375a3.75 3.75 0 0 1 3.75 3.75v1.875C13.5 8.161 14.34 9 15.375 9h1.875A3.75 3.75 0 0 1 21 12.75v3.375C21 17.16 20.16 18 19.125 18h-9.75A1.875 1.875 0 0 1 7.5 16.125V3.375Z" />
-                  <path d="M15 5.25a5.23 5.23 0 0 0-1.279-3.434 9.768 9.768 0 0 1 6.963 6.963A5.23 5.23 0 0 0 17.25 7.5h-1.875A.375.375 0 0 1 15 7.125V5.25ZM4.875 6H6v10.125A3.375 3.375 0 0 0 9.375 19.5H16.5v1.125c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 0 1 3 20.625V7.875C3 6.839 3.84 6 4.875 6Z" />
-                </svg>
-                {getPaymentNumber(paymentMethod)}
-              </span>
-            </p>
-            <ul>
-              <li className="mt-2 mb-1">
-                1. Please use the{" "}
-                <span className="font-bold">"Send Money"</span> from{" "}
-                {paymentMethod} App.
-              </li>
-              <li className="mb-2">
-                2. Sent this amount{" "}
-                <span className="text-red-700 font-bold">
-                  {totalPrice.toFixed(2)}
-                </span>{" "}
-                tk
-              </li>
-              <li className="mb-2">
-                3. After Payment give your{" "}
-                <span className="text-yellow-200 bg-slate-600 p-[1px] rounded-md">
-                  'Transaction ID'
-                </span>{" "}
-              </li>
-              <li className="flex">
-                4. Then enter your&nbsp;{" "}
-                <span className="text-green-400 flex bg-slate-600 p-[1px] rounded-md">
-                  &nbsp;WhatsApp&nbsp;
-                </span>{" "}
-                &nbsp;or&nbsp;{" "}
-                <span className="text-red-300 bg-slate-600 flex  p-[1px] rounded-md">
-                  &nbsp;Email&nbsp;
-                </span>{" "}
-              </li>
-            </ul>
-            {/* Notification message */}
-            <AnimatePresence>
-              {showNotification && (
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex justify-center items-center z-50"
-                >
-                  <div className="bg-green-500 text-white py-2 px-4 rounded-md">
-                    {notificationMessage}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
           <p className="text-lg font-semibold mb-2">Enter Transaction ID</p>
           <input
             type="text"
@@ -255,4 +266,3 @@ function Checkout() {
 }
 
 export default Checkout;
-
