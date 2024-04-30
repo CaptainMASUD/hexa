@@ -101,7 +101,7 @@ function Checkout() {
           }`}
           onClick={() => setPaymentMethod("Bkash")}
         >
-        <img src={bk} className="w-5 h-5" alt="" />&nbsp;Bkash
+        <img src={bk} className="w-5 h-5 mt-[2px]" alt="" />&nbsp;Bkash
         </button>
         <button
           className={`border flex border-orange-400 hover:bg-orange-600 focus:text-white text-orange-400 hover:text-white font-bold py-2 px-4 rounded-full mr-2 ${
@@ -117,7 +117,7 @@ function Checkout() {
           }`}
           onClick={() => setPaymentMethod("Rocket")}
         >
-        <GrSend className="w-5 h-5"/> &nbsp;Rocket
+        <GrSend className="w-5 h-5 mt-[2px]"/> &nbsp;Rocket
         </button>
       </div>
       <AnimatePresence>
