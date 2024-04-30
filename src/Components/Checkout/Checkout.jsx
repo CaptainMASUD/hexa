@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../../Context/CartContext/CartContext";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import ng from '../../images/ng.png'
+import bk from '../../images/bk.png'
+import { GrSend } from "react-icons/gr";
 
 
 function Checkout() {
@@ -94,28 +97,28 @@ function Checkout() {
       </h1>
       <div className="flex justify-center mb-4">
         <button
-          className={`border text-pink-500 border-pink-500 focus:text-white hover:text-white duration-300 hover:bg-pink-600 font-bold py-2 px-4 rounded-full mr-2 ${
+          className={`border flex text-pink-500 border-pink-500 focus:text-white hover:text-white duration-300 hover:bg-pink-600 font-bold py-2 px-4 rounded-full mr-2 ${
             paymentMethod === "Bkash" && "bg-pink-600 "
           }`}
           onClick={() => setPaymentMethod("Bkash")}
         >
-          Bkash
+        <img src={bk} className="w-6 h-6" alt="" />&nbsp;  Bkash
         </button>
         <button
-          className={`border border-orange-400 hover:bg-orange-600 focus:text-white text-orange-400 hover:text-white font-bold py-2 px-4 rounded-full mr-2 ${
+          className={`border flex border-orange-400 hover:bg-orange-600 focus:text-white text-orange-400 hover:text-white font-bold py-2 px-4 rounded-full mr-2 ${
             paymentMethod === "Nagad" && "bg-orange-600"
           }`}
           onClick={() => setPaymentMethod("Nagad")}
         >
-          Nagad
+         <img src={ng} alt=""  className="w-5 h-5" />&nbsp; Nagad
         </button>
         <button
-          className={`border border-purple-400 hover:bg-purple-600 text-purple-500 focus:text-white hover:text-white font-bold py-2 px-4 rounded-full ${
+          className={`border flex border-purple-400 hover:bg-purple-600 text-purple-500 focus:text-white hover:text-white font-bold py-2 px-4 rounded-full ${
             paymentMethod === "Rocket" && "bg-purple-600"
           }`}
           onClick={() => setPaymentMethod("Rocket")}
         >
-          Rocket
+        <GrSend className="w-6 h-6"/> &nbsp; Rocket
         </button>
       </div>
       {paymentMethod && (
