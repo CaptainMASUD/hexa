@@ -35,7 +35,7 @@ function SubscriptionCard({ name, price, features }) {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 h-80 mx-4 relative mb-10">
+    <div className="relative bg-white shadow-md rounded-lg p-6 mx-4 mb-10">
       <div className="absolute top-2 right-2 text-red-500">
         <BsBookmarkCheckFill className="text-3xl cursor-pointer" onMouseEnter={() => setShowSuggestion(true)} onMouseLeave={() => setShowSuggestion(false)} />
         <AnimatePresence>
@@ -66,7 +66,7 @@ function SubscriptionCard({ name, price, features }) {
       </ul>
       <div className='grid place-content-center'>
         <button onClick={handleAddToCart} className="hover:bg-red-600 flex text-md hover:text-white text-red-700 py-1 px-3 rounded-full border border-red-700 transition duration-300 ease-in-out">
-        <FaCartPlus className='mt-1' /> &nbsp;Add to Cart
+          <FaCartPlus className='mt-1' /> &nbsp;Add to Cart
         </button>
       </div>
       <AnimatePresence>
